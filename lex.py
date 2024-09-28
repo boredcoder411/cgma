@@ -43,6 +43,12 @@ class Lexer:
             token = Token(self.curChar, TokenType.ASTERISK)
         elif self.curChar == '/':
             token = Token(self.curChar, TokenType.SLASH)
+        elif self.curChar == '&':
+            print("Found &")
+            token = Token(self.curChar, TokenType.ADDR)
+        elif self.curChar == '§':
+            print("Found §")
+            token = Token(self.curChar, TokenType.DEREF)
         elif self.curChar == '=':
             # Check whether this token is = or ==
             if self.peek() == '=':

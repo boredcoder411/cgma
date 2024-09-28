@@ -41,6 +41,7 @@ class Parser:
         return self.checkToken(TokenType.GT) or self.checkToken(TokenType.GTEQ) or self.checkToken(TokenType.LT) or self.checkToken(TokenType.LTEQ) or self.checkToken(TokenType.EQEQ) or self.checkToken(TokenType.NOTEQ)
 
     def abort(self, message):
+        print("caller is: ", sys._getframe(1).f_code.co_name)
         sys.exit("Error! " + message)
 
 
@@ -145,16 +146,32 @@ class Parser:
         elif self.checkToken(TokenType.LET):
             self.nextToken()
 
-            #  Check if ident exists in symbol table. If not, declare it.
-            if self.curToken.text not in self.symbols:
-                self.symbols.add(self.curToken.text)
-                self.emitter.headerLine("float " + self.curToken.text + ";")
-
-            self.emitter.emit(self.curToken.text + " = ")
+            # Save variable name for later.
+            varName = self.curToken.text
             self.match(TokenType.IDENT)
+
+            if varName not in self.symbols:
+                # Peek ahead to check if this is a pointer type.
+                if self.checkPeek(TokenType.ADDR):
+                    # Pointer type, so add '*' to the variable name.
+                    self.symbols.add(varName)
+                    print("varName: ", varName)
+                    self.emitter.headerLine("float* " + varName + ";")
+                else:
+                    # Not a pointer, so just a regular float.
+                    self.symbols.add(varName)
+                    self.emitter.headerLine("float " + varName + ";")
+
             self.match(TokenType.EQ)
-            
-            self.expression()
+
+            if self.checkToken(TokenType.ADDR):
+                self.nextToken()
+                self.emitter.emit(varName + " = &" + self.curToken.text)
+                self.match(TokenType.IDENT)
+            else:
+                self.emitter.emit(varName + " = ")
+                self.expression()
+
             self.emitter.emitLine(";")
 
         # "INPUT" ident
@@ -217,12 +234,19 @@ class Parser:
             self.unary()
 
 
-    # unary ::= ["+" | "-"] primary
+    # unary ::= ["+" | "-" | "&" | "§"] primary
     def unary(self):
-        # Optional unary +/-
+        # Optional unary +/-, and also handle & (address-of) and § (dereference)
         if self.checkToken(TokenType.PLUS) or self.checkToken(TokenType.MINUS):
             self.emitter.emit(self.curToken.text)
-            self.nextToken()        
+            self.nextToken()
+        elif self.checkToken(TokenType.ADDR):
+            self.emitter.emit("&")
+            self.nextToken()
+        elif self.checkToken(TokenType.DEREF):
+            self.emitter.emit("*")  # C dereference uses '*'
+            self.nextToken()
+    
         self.primary()
 
 

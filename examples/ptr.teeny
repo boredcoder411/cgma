@@ -1,0 +1,3 @@
+LET x = 5
+LET ptr = &x
+PRINT §ptr

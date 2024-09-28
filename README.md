@@ -1,4 +1,5 @@
-# teenytinycompiler
+# scc
+scc means: sigma [to] c compiler because I wanted a brainrot name
 
 This is based on Austin Z. Henley's teenytinycompiler. I added:
  - pointer things

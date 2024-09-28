@@ -192,3 +192,6 @@ class TokenType(enum.Enum):
     LTEQ = 209
     GT = 210
     GTEQ = 211
+    # Pointer things
+    ADDR = 301
+    DEREF = 302

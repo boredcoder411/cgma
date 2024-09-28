@@ -12,4 +12,3 @@ term ::= unary {( "/" | "*" ) unary}
 unary ::= ["+" | "-"] primary
 primary ::= number | ident
 nl ::= '\n'+
-

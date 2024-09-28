@@ -49,7 +49,7 @@ class Parser:
     # program ::= {statement}
     def program(self):
         self.emitter.headerLine("#include <stdio.h>")
-        self.emitter.headerLine("int main(void){")
+        self.emitter.headerLine("int main(int argc, char** argv){")
         
         # Since some newlines are required in our grammar, need to skip the excess.
         while self.checkToken(TokenType.NEWLINE):

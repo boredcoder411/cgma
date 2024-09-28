@@ -1,13 +1,13 @@
-PRINT "How many fibonacci numbers do you want?"
-INPUT nums
-PRINT ""
+YAP "How many fibonacci numbers do you want?"
+HEAROUT nums
+YAP ""
 
-LET a = 0
-LET b = 1
-WHILE nums > 0 REPEAT
-    PRINT a
-    LET c = a + b
-    LET a = b
-    LET b = c
-    LET nums = nums - 1
-ENDWHILE
+COOK a = 0
+COOK b = 1
+EDGE nums > 0 REPEAT
+    YAP a
+    COOK c = a + b
+    COOK a = b
+    COOK b = c
+    COOK nums = nums - 1
+ENDEDGE

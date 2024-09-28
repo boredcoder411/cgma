@@ -74,8 +74,8 @@ class Parser:
     def statement(self):
         # Check the first token to see what kind of statement this is.
 
-        # "PRINT" (expression | string)
-        if self.checkToken(TokenType.PRINT):
+        # "YAP" (expression | string)
+        if self.checkToken(TokenType.YAP):
             self.nextToken()
 
             if self.checkToken(TokenType.STRING):
@@ -89,25 +89,25 @@ class Parser:
                 self.expression()
                 self.emitter.emitLine("));")
 
-        # "IF" comparison "THEN" block "ENDIF"
-        elif self.checkToken(TokenType.IF):
+        # "SKIB" comparison "MOG" block "IDI"
+        elif self.checkToken(TokenType.SKIB):
             self.nextToken()
             self.emitter.emit("if(")
             self.comparison()
 
-            self.match(TokenType.THEN)
+            self.match(TokenType.MOG)
             self.nl()
             self.emitter.emitLine("){")
 
             # Zero or more statements in the body.
-            while not self.checkToken(TokenType.ENDIF):
+            while not self.checkToken(TokenType.IDI):
                 self.statement()
 
-            self.match(TokenType.ENDIF)
+            self.match(TokenType.IDI)
             self.emitter.emitLine("}")
 
-        # "WHILE" comparison "REPEAT" block "ENDWHILE"
-        elif self.checkToken(TokenType.WHILE):
+        # "EDGE" comparison "REPEAT" block "ENDEDGE"
+        elif self.checkToken(TokenType.EDGE):
             self.nextToken()
             self.emitter.emit("while(")
             self.comparison()
@@ -117,10 +117,10 @@ class Parser:
             self.emitter.emitLine("){")
 
             # Zero or more statements in the loop body.
-            while not self.checkToken(TokenType.ENDWHILE):
+            while not self.checkToken(TokenType.ENDEDGE):
                 self.statement()
 
-            self.match(TokenType.ENDWHILE)
+            self.match(TokenType.ENDEDGE)
             self.emitter.emitLine("}")
 
         # "LABEL" ident
@@ -142,8 +142,8 @@ class Parser:
             self.emitter.emitLine("goto " + self.curToken.text + ";")
             self.match(TokenType.IDENT)
 
-        # "LET" ident = expression
-        elif self.checkToken(TokenType.LET):
+        # "COOK" ident = expression
+        elif self.checkToken(TokenType.COOK):
             self.nextToken()
 
             # Save variable name for later.
@@ -174,8 +174,8 @@ class Parser:
 
             self.emitter.emitLine(";")
 
-        # "INPUT" ident
-        elif self.checkToken(TokenType.INPUT):
+        # "HEAROUT" ident
+        elif self.checkToken(TokenType.HEAROUT):
             self.nextToken()
 
             # If variable doesn't already exist, declare it.

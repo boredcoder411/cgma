@@ -1,57 +1,57 @@
-PRINT "Transform a vector by a matrix."
+YAP "Transform a vector by a matrix."
 
-LET m11 = 0
-LET m12 = 0
-LET m13 = 0
-LET m14 = 0
-LET m21 = 0
-LET m22 = 0
-LET m23 = 0
-LET m24 = 0
-LET m31 = 0
-LET m32 = 0
-LET m33 = 0
-LET m34 = 0
-LET m41 = 0
-LET m42 = 0
-LET m43 = 0
-LET m44 = 0
+COOK m11 = 0
+COOK m12 = 0
+COOK m13 = 0
+COOK m14 = 0
+COOK m21 = 0
+COOK m22 = 0
+COOK m23 = 0
+COOK m24 = 0
+COOK m31 = 0
+COOK m32 = 0
+COOK m33 = 0
+COOK m34 = 0
+COOK m41 = 0
+COOK m42 = 0
+COOK m43 = 0
+COOK m44 = 0
 
-PRINT "Enter 16 matrix values: "
-INPUT m11
-INPUT m12
-INPUT m13
-INPUT m14
-INPUT m21
-INPUT m22
-INPUT m23
-INPUT m24
-INPUT m31
-INPUT m32
-INPUT m33
-INPUT m34
-INPUT m41
-INPUT m42
-INPUT m43
-INPUT m44
+YAP "Enter 16 matrix values: "
+HEAROUT m11
+HEAROUT m12
+HEAROUT m13
+HEAROUT m14
+HEAROUT m21
+HEAROUT m22
+HEAROUT m23
+HEAROUT m24
+HEAROUT m31
+HEAROUT m32
+HEAROUT m33
+HEAROUT m34
+HEAROUT m41
+HEAROUT m42
+HEAROUT m43
+HEAROUT m44
 
-LET v1 = 0
-LET v2 = 0
-LET v3 = 0
-LET v4 = 0
+COOK v1 = 0
+COOK v2 = 0
+COOK v3 = 0
+COOK v4 = 0
 
-PRINT "Enter 4 vector values: "
-INPUT v1
-INPUT v2
-INPUT v3
-INPUT v4
+YAP "Enter 4 vector values: "
+HEAROUT v1
+HEAROUT v2
+HEAROUT v3
+HEAROUT v4
 
-LET result1 = m11 * v1 + m12 * v2 + m13 * v3 + m14 * v4
-LET result2 = m21 * v1 + m22 * v2 + m23 * v3 + m24 * v4
-LET result3 = m31 * v1 + m32 * v2 + m33 * v3 + m34 * v4
-LET result4 = m41 * v1 + m42 * v2 + m43 * v3 + m44 * v4
+COOK result1 = m11 * v1 + m12 * v2 + m13 * v3 + m14 * v4
+COOK result2 = m21 * v1 + m22 * v2 + m23 * v3 + m24 * v4
+COOK result3 = m31 * v1 + m32 * v2 + m33 * v3 + m34 * v4
+COOK result4 = m41 * v1 + m42 * v2 + m43 * v3 + m44 * v4
 
-PRINT result1
-PRINT result2
-PRINT result3
-PRINT result4
+YAP result1
+YAP result2
+YAP result3
+YAP result4

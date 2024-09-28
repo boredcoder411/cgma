@@ -177,15 +177,15 @@ class TokenType(enum.Enum):
     # Keywords.
     LABEL = 101
     GOTO = 102
-    PRINT = 103
-    INPUT = 104
-    LET = 105
-    IF = 106
-    THEN = 107
-    ENDIF = 108
-    WHILE = 109
+    YAP = 103
+    HEAROUT = 104
+    COOK = 105
+    SKIB = 106
+    MOG = 107
+    IDI = 108
+    EDGE = 109
     REPEAT = 110
-    ENDWHILE = 111
+    ENDEDGE = 111
     # Operators.
     EQ = 201  
     PLUS = 202

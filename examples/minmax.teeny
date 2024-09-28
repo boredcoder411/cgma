@@ -1,38 +1,38 @@
 # Take an arbitrary number of inputs an return the minimum, maximum, sum, and average.
 
-LET minsofar = 0
-LET maxsofar = 0
-LET sum = 0
+COOK minsofar = 0
+COOK maxsofar = 0
+COOK sum = 0
 
-LET num = 0
-PRINT "Enter number of inputs: "
-INPUT num
+COOK num = 0
+YAP "Enter number of inputs: "
+HEAROUT num
 
-LET i = 0
-LET c = 0
-WHILE i < num REPEAT
-    INPUT c
-    IF i == 0 THEN
-        LET minsofar = c
-        LET maxsofar = c
-    ENDIF
-    IF i != 0 THEN
-        IF c < minsofar THEN
-            LET minsofar = c
-        ENDIF
-        IF c > maxsofar THEN
-            LET maxsofar = c
-        ENDIF
-    ENDIF
-    LET sum = sum + c
-    LET i = i + 1
-ENDWHILE
+COOK i = 0
+COOK c = 0
+EDGE i < num REPEAT
+    HEAROUT c
+    SKIB i == 0 MOG
+        COOK minsofar = c
+        COOK maxsofar = c
+    IDI
+    SKIB i != 0 MOG
+        SKIB c < minsofar MOG
+            COOK minsofar = c
+        IDI
+        SKIB c > maxsofar MOG
+            COOK maxsofar = c
+        IDI
+    IDI
+    COOK sum = sum + c
+    COOK i = i + 1
+ENDEDGE
 
-PRINT "Min: "
-PRINT minsofar
-PRINT "Max: "
-PRINT maxsofar
-PRINT "Sum: "
-PRINT sum
-PRINT "Avg: "
-PRINT sum / num
+YAP "Min: "
+YAP minsofar
+YAP "Max: "
+YAP maxsofar
+YAP "Sum: "
+YAP sum
+YAP "Avg: "
+YAP sum / num

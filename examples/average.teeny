@@ -1,19 +1,19 @@
 # Compute average of given values.
 
-LET a = 0
-WHILE a < 1 REPEAT
-    PRINT "Enter number of scores: "
-    INPUT a
-ENDWHILE
+COOK a = 0
+EDGE a < 1 REPEAT
+    YAP "Enter number of scores: "
+    HEAROUT a
+ENDEDGE
 
-LET b = 0
-LET s = 0
-PRINT "Enter one value at a time: "
-WHILE b < a REPEAT
-    INPUT c
-    LET s = s + c
-    LET b = b + 1
-ENDWHILE
+COOK b = 0
+COOK s = 0
+YAP "Enter one value at a time: "
+EDGE b < a REPEAT
+    HEAROUT c
+    COOK s = s + c
+    COOK b = b + 1
+ENDEDGE
 
-PRINT "Average: "
-PRINT s / a
+YAP "Average: "
+YAP s / a

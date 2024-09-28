@@ -1,34 +1,22 @@
 # teenytinycompiler
 
-This is a small compiler to demonstrate how compilers work to my students. It compiles our own dialect of BASIC to C, while being written in Python.
-
-Read the tutorial: [Let's make a Teeny Tiny compiler, part 1](https://austinhenley.com/blog/teenytinycompiler1.html) as well as [part 2](https://austinhenley.com/blog/teenytinycompiler2.html) and [part 3](https://austinhenley.com/blog/teenytinycompiler3.html)
-
-The code is split into folders (part1, part2, part3) that correspond with the complete code from the parts of the tutorial. See part3 for the finished compiler.
-
-It supports:
-  - Numerical variables
-  - Basic arithmetic
-  - If statements
-  - While loops
-  - Print text and numbers
-  - Input numbers
-  - Labels and goto
-  - Comments
+This is based on Austin Z. Henley's teenytinycompiler. I added:
+ - pointer things
+ - brainrot keywords
 
 Example code:
 ```
-PRINT "How many fibonacci numbers do you want?"
-INPUT nums
-PRINT ""
+YAP "How many fibonacci numbers do you want?"
+HEAROUT nums
+YAP ""
 
-LET a = 0
-LET b = 1
-WHILE nums > 0 REPEAT
-    PRINT a
-    LET c = a + b
-    LET a = b
-    LET b = c
-    LET nums = nums - 1
-ENDWHILE
+COOK a = 0
+COOK b = 1
+EDGE nums > 0 REPEAT
+    YAP a
+    COOK c = a + b
+    COOK a = b
+    COOK b = c
+    COOK nums = nums - 1
+ENDEDGE
 ```

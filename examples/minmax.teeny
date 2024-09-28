@@ -10,7 +10,7 @@ HEAROUT num
 
 COOK i = 0
 COOK c = 0
-EDGE i < num REPEAT
+EDGE i < num STREAK
     HEAROUT c
     SKIB i == 0 MOG
         COOK minsofar = c

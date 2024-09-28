@@ -106,13 +106,13 @@ class Parser:
             self.match(TokenType.IDI)
             self.emitter.emitLine("}")
 
-        # "EDGE" comparison "REPEAT" block "ENDEDGE"
+        # "EDGE" comparison "STREAK" block "ENDEDGE"
         elif self.checkToken(TokenType.EDGE):
             self.nextToken()
             self.emitter.emit("while(")
             self.comparison()
 
-            self.match(TokenType.REPEAT)
+            self.match(TokenType.STREAK)
             self.nl()
             self.emitter.emitLine("){")
 

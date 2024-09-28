@@ -184,7 +184,7 @@ class TokenType(enum.Enum):
     MOG = 107
     IDI = 108
     EDGE = 109
-    REPEAT = 110
+    STREAK = 110
     ENDEDGE = 111
     # Operators.
     EQ = 201  

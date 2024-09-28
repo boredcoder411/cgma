@@ -13,7 +13,7 @@ YAP ""
 
 COOK a = 0
 COOK b = 1
-EDGE nums > 0 REPEAT
+EDGE nums > 0 STREAK
     YAP a
     COOK c = a + b
     COOK a = b

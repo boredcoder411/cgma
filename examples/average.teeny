@@ -1,7 +1,7 @@
 # Compute average of given values.
 
 COOK a = 0
-EDGE a < 1 REPEAT
+EDGE a < 1 STREAK
     YAP "Enter number of scores: "
     HEAROUT a
 ENDEDGE
@@ -9,7 +9,7 @@ ENDEDGE
 COOK b = 0
 COOK s = 0
 YAP "Enter one value at a time: "
-EDGE b < a REPEAT
+EDGE b < a STREAK
     HEAROUT c
     COOK s = s + c
     COOK b = b + 1

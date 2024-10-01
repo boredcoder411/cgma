@@ -1,3 +1,5 @@
+# WARNING: THIS PROJECT IS ABANDONNED
+
 # cgma
 cmga is an amalgamation of the words c (programming language) and sigma. It is not production ready (but if you manage to convince your boss to let you write cgma at work, please let me know), and definetly not meant to be taken seriously.
 
